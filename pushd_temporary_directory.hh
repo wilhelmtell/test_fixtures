@@ -4,6 +4,7 @@
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/system/error_code.hpp>
+#include "temporary_directory.hh"
 #include <string>
 
 namespace fixtures {
@@ -12,14 +13,14 @@ struct pushd_temporary_directory {
     : temp_dir(name)
     , original_path(boost::filesystem::current_path())
     {
-        boost::filesystem::current_path(path())
+        boost::filesystem::current_path(path());
     }
 
     pushd_temporary_directory()
     : temp_dir()
     , original_path(boost::filesystem::current_path())
     {
-        boost::filesystem::current_path(path())
+        boost::filesystem::current_path(path());
     }
 
     ~pushd_temporary_directory()
