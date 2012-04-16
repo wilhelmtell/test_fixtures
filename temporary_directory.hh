@@ -31,6 +31,9 @@ struct temporary_directory {
         }
     }
 
+    temporary_directory(temporary_directory const&) = delete;
+    temporary_directory& operator=(temporary_directory const&) = delete;
+
     const boost::filesystem::path& path() const { return temp_path; }
 
 private:
