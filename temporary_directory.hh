@@ -1,5 +1,5 @@
-#ifndef TEMPORARY_DIRECTORY_HH_
-#define TEMPORARY_DIRECTORY_HH_
+#ifndef FIXTURES_TEMPORARY_DIRECTORY_HH_
+#define FIXTURES_TEMPORARY_DIRECTORY_HH_
 
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
@@ -8,7 +8,7 @@
 
 namespace fixtures {
 struct temporary_directory {
-    temporary_directory(const std::string& name)
+    temporary_directory(std::string const& name)
     : temp_path(boost::filesystem::temp_directory_path() / name)
     {
         boost::filesystem::create_directories(temp_path);
@@ -41,4 +41,4 @@ private:
 };
 }  // namespace fixtures
 
-#endif  // TEMPORARY_DIRECTORY_HH_
+#endif  // FIXTURES_TEMPORARY_DIRECTORY_HH_
