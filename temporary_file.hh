@@ -12,7 +12,7 @@ struct temporary_file {
     temporary_file(temporary_file const&) = delete;
     temporary_file& operator=(temporary_file const&) = delete;
 
-    const boost::filesystem::path& path() const;
+    boost::filesystem::path path() const;
 
 private:
     boost::filesystem::path file_path;

@@ -30,7 +30,7 @@ temporary_directory::~temporary_directory()
     }
 }
 
-const boost::filesystem::path& temporary_directory::path() const
+boost::filesystem::path temporary_directory::path() const
 {
     return temp_path;
 }
