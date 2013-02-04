@@ -6,7 +6,7 @@
 
 namespace fixtures {
 struct temporary_directory {
-    temporary_directory(std::string const& name);
+    explicit temporary_directory(std::string const& name);
     temporary_directory();
     ~temporary_directory();
     temporary_directory(temporary_directory const&) = delete;

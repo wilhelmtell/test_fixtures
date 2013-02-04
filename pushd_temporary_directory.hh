@@ -7,7 +7,7 @@
 
 namespace fixtures {
 struct pushd_temporary_directory {
-    pushd_temporary_directory(std::string const& name);
+    explicit pushd_temporary_directory(std::string const& name);
     pushd_temporary_directory();
     ~pushd_temporary_directory();
     pushd_temporary_directory(pushd_temporary_directory const&) = delete;
