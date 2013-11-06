@@ -1,14 +1,13 @@
 #ifndef FIXTURES_TEMPORARY_FILE_TCC_
 #define FIXTURES_TEMPORARY_FILE_TCC_
 
-#include <string>
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>
 #include <utility>
 
 namespace fixtures {
-temporary_file::temporary_file(std::string name)
-: file_path(std::move(name))
+temporary_file::temporary_file(boost::filesystem::path p)
+: file_path(std::move(p))
 {
     boost::filesystem::create_directories(file_path);
 }

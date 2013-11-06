@@ -1,12 +1,11 @@
 #ifndef FIXTURES_TEMPORARY_FILE_HH_
 #define FIXTURES_TEMPORARY_FILE_HH_
 
-#include <string>
 #include <boost/filesystem/path.hpp>
 
 namespace fixtures {
 struct temporary_file {
-    explicit temporary_file(std::string name);
+    explicit temporary_file(boost::filesystem::path p);
     temporary_file();
     ~temporary_file();
     temporary_file(temporary_file const&) = delete;
