@@ -5,10 +5,11 @@
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/system/error_code.hpp>
+#include <utility>
 
 namespace fixtures {
-pushd_temporary_directory::pushd_temporary_directory(std::string const& name)
-: temp_dir(name)
+pushd_temporary_directory::pushd_temporary_directory(std::string name)
+: temp_dir(std::move(name))
 , original_path(boost::filesystem::current_path())
 {
     boost::filesystem::current_path(path());
