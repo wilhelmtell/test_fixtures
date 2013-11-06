@@ -2,11 +2,10 @@
 #define FIXTURES_TEMPORARY_DIRECTORY_HH_
 
 #include <boost/filesystem/path.hpp>
-#include <string>
 
 namespace fixtures {
 struct temporary_directory {
-    explicit temporary_directory(std::string name);
+    explicit temporary_directory(boost::filesystem::path p);
     temporary_directory();
     ~temporary_directory();
     temporary_directory(temporary_directory const&) = delete;
