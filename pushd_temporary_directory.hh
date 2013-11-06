@@ -3,11 +3,10 @@
 
 #include <boost/filesystem/path.hpp>
 #include "temporary_directory.hh"
-#include <string>
 
 namespace fixtures {
 struct pushd_temporary_directory {
-    explicit pushd_temporary_directory(std::string name);
+    explicit pushd_temporary_directory(boost::filesystem::path p);
     pushd_temporary_directory();
     ~pushd_temporary_directory();
     pushd_temporary_directory(pushd_temporary_directory const&) = delete;

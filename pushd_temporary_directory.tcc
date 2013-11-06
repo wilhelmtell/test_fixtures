@@ -1,15 +1,14 @@
 #ifndef FIXTURES_PUSHD_TEMPORARY_DIRECTORY_TCC_
 #define FIXTURES_PUSHD_TEMPORARY_DIRECTORY_TCC_
 
-#include <string>
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/system/error_code.hpp>
 #include <utility>
 
 namespace fixtures {
-pushd_temporary_directory::pushd_temporary_directory(std::string name)
-: temp_dir(std::move(name))
+pushd_temporary_directory::pushd_temporary_directory(boost::filesystem::path p)
+: temp_dir(std::move(p))
 , original_path(boost::filesystem::current_path())
 {
     boost::filesystem::current_path(path());
