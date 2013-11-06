@@ -21,11 +21,6 @@ temporary_file::~temporary_file()
 {
     boost::system::error_code err;
     boost::filesystem::remove_all(file_path, err);
-    if( err ) {
-        std::cerr
-            << "WARNING:failed to remove temporary file "
-            << path().string() << '\n';
-    }
 }
 
 boost::filesystem::path temporary_file::path() const
