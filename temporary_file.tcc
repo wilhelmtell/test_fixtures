@@ -4,6 +4,7 @@
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>
 #include <utility>
+#include <fstream>
 
 namespace fixtures {
 temporary_file::temporary_file(boost::filesystem::path p)
@@ -26,6 +27,22 @@ temporary_file::~temporary_file()
 boost::filesystem::path temporary_file::path() const
 {
     return file_path;
+}
+
+template<typename T>
+temporary_file& operator<<(temporary_file& out, T const& value)
+{
+    std::ofstream file(out.path().string());
+    file << value;
+    return out;
+}
+
+template<typename T>
+temporary_file& operator>>(temporary_file& in, T& value)
+{
+    std::ifstream file(in.path().string());
+    file >> value;
+    return in;
 }
 }  // namespace fixtures
 

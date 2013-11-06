@@ -16,6 +16,11 @@ struct temporary_file {
 private:
     boost::filesystem::path file_path;
 };
+
+template<typename T>
+temporary_file& operator<<(temporary_file& out, T const& value);
+template<typename T>
+temporary_file& operator>>(temporary_file& in, T& value);
 }  // namespace fixtures
 
 #include "temporary_file.tcc"
