@@ -6,7 +6,7 @@
 
 namespace fixtures {
 struct temporary_file {
-    explicit temporary_file(std::string const& name);
+    explicit temporary_file(std::string name);
     temporary_file();
     ~temporary_file();
     temporary_file(temporary_file const&) = delete;
