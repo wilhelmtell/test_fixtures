@@ -25,11 +25,6 @@ pushd_temporary_directory::~pushd_temporary_directory()
 {
     boost::system::error_code err;
     boost::filesystem::current_path(original_path, err);
-    if( err ) {
-        std::cerr
-            << "WARNING:failed to change current directory back to "
-            << original_path.string() << '\n';
-    }
 }
 
 boost::filesystem::path pushd_temporary_directory::path() const
