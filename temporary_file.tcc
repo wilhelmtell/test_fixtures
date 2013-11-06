@@ -8,7 +8,7 @@
 
 namespace fixtures {
 temporary_file::temporary_file(std::string name)
-: file_path(boost::filesystem::temp_directory_path() / std::move(name))
+: file_path(std::move(name))
 {
     boost::filesystem::create_directories(file_path);
 }
