@@ -13,9 +13,8 @@ temporary_file::temporary_file(boost::filesystem::path p)
 }
 
 temporary_file::temporary_file()
-: file_path(boost::filesystem::temp_directory_path() / boost::filesystem::unique_path())
+: temporary_file(boost::filesystem::temp_directory_path() / boost::filesystem::unique_path())
 {
-    boost::filesystem::create_directories(file_path);
 }
 
 temporary_file::~temporary_file()
