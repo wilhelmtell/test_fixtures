@@ -23,11 +23,6 @@ temporary_directory::~temporary_directory()
 {
     boost::system::error_code err;
     boost::filesystem::remove_all(temp_path, err);
-    if( err ) {
-        std::cerr
-            << "WARNING:failed to remove temporary directory "
-            << path().string() << '\n';
-    }
 }
 
 boost::filesystem::path temporary_directory::path() const
