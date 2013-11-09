@@ -40,6 +40,13 @@ boost::filesystem::path temporary_file::path() const
     return file_path;
 }
 
+inline void swap(temporary_file& lhs, temporary_file& rhs)
+{
+    temporary_file temporary(std::move(lhs));
+    lhs = std::move(rhs);
+    rhs = std::move(temporary);
+}
+
 template<typename T>
 temporary_file& operator<<(temporary_file& out, T const& value)
 {
