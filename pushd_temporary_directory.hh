@@ -11,6 +11,8 @@ struct pushd_temporary_directory {
     ~pushd_temporary_directory();
     pushd_temporary_directory(pushd_temporary_directory const&) = delete;
     pushd_temporary_directory& operator=(pushd_temporary_directory const&) = delete;
+    pushd_temporary_directory(pushd_temporary_directory&& rhs);
+    pushd_temporary_directory& operator=(pushd_temporary_directory&&);
 
     boost::filesystem::path path() const;
 
