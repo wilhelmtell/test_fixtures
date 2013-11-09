@@ -18,21 +18,10 @@ temporary_file::temporary_file()
 {
 }
 
-temporary_file::temporary_file(temporary_file&& rhs)
-: file_path(std::move(rhs.file_path))
-{
-}
-
 temporary_file::~temporary_file()
 {
     boost::system::error_code err;
     boost::filesystem::remove_all(file_path, err);
-}
-
-temporary_file& temporary_file::operator=(temporary_file&& rhs)
-{
-    using namespace std;
-    swap(file_path, rhs.file_path);
 }
 
 boost::filesystem::path temporary_file::path() const

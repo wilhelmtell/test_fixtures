@@ -7,11 +7,11 @@ namespace fix {
 struct temporary_file {
     explicit temporary_file(boost::filesystem::path p);
     temporary_file();
-    temporary_file(temporary_file&& rhs);
+    temporary_file(temporary_file&& rhs) = default;
     ~temporary_file();
     temporary_file(temporary_file const&) = delete;
     temporary_file& operator=(temporary_file const&) = delete;
-    temporary_file& operator=(temporary_file&& rhs);
+    temporary_file& operator=(temporary_file&& rhs) = default;
 
     boost::filesystem::path path() const;
 
