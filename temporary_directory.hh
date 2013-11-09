@@ -18,6 +18,8 @@ struct temporary_directory {
 private:
     boost::filesystem::path temp_path;
 };
+
+void swap(temporary_directory& lhs, temporary_directory& rhs);
 }  // namespace fix
 
 #include "temporary_directory.tcc"
