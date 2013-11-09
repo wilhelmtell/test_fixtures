@@ -40,6 +40,13 @@ pushd_temporary_directory& pushd_temporary_directory::operator=(pushd_temporary_
     swap(original_path, rhs.original_path);
 }
 
+void swap(pushd_temporary_directory& lhs, pushd_temporary_directory& rhs)
+{
+    pushd_temporary_directory temporary(std::move(lhs));
+    lhs = std::move(rhs);
+    rhs = std::move(temporary);
+}
+
 boost::filesystem::path pushd_temporary_directory::path() const
 {
     return temp_dir.path();

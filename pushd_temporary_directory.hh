@@ -20,6 +20,8 @@ private:
     temporary_directory temp_dir;
     boost::filesystem::path original_path;
 };
+
+void swap(pushd_temporary_directory& lhs, pushd_temporary_directory& rhs);
 }  // namespace fix
 
 #include "pushd_temporary_directory.tcc"
