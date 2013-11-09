@@ -1,12 +1,12 @@
-#ifndef FIXTURES_TEMPORARY_DIRECTORY_TCC_
-#define FIXTURES_TEMPORARY_DIRECTORY_TCC_
+#ifndef FIX_TEMPORARY_DIRECTORY_TCC_
+#define FIX_TEMPORARY_DIRECTORY_TCC_
 
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/system/error_code.hpp>
 #include <utility>
 
-namespace fixtures {
+namespace fix {
 temporary_directory::temporary_directory(boost::filesystem::path p)
 : temp_path(std::move(p))
 {
@@ -29,6 +29,6 @@ boost::filesystem::path temporary_directory::path() const
 {
     return temp_path;
 }
-}  // namespace fixtures
+}  // namespace fix
 
-#endif  // FIXTURES_TEMPORARY_DIRECTORY_TCC_
+#endif  // FIX_TEMPORARY_DIRECTORY_TCC_

@@ -1,9 +1,9 @@
-#ifndef FIXTURES_TEMPORARY_FILE_HH_
-#define FIXTURES_TEMPORARY_FILE_HH_
+#ifndef FIX_TEMPORARY_FILE_HH_
+#define FIX_TEMPORARY_FILE_HH_
 
 #include <boost/filesystem/path.hpp>
 
-namespace fixtures {
+namespace fix {
 struct temporary_file {
     explicit temporary_file(boost::filesystem::path p);
     temporary_file();
@@ -23,8 +23,8 @@ template<typename T>
 temporary_file& operator<<(temporary_file& out, T const& value);
 template<typename T>
 temporary_file& operator>>(temporary_file& in, T& value);
-}  // namespace fixtures
+}  // namespace fix
 
 #include "temporary_file.tcc"
 
-#endif  // FIXTURES_TEMPORARY_FILE_HH_
+#endif  // FIX_TEMPORARY_FILE_HH_

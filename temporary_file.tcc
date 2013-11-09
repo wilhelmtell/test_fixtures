@@ -1,12 +1,12 @@
-#ifndef FIXTURES_TEMPORARY_FILE_TCC_
-#define FIXTURES_TEMPORARY_FILE_TCC_
+#ifndef FIX_TEMPORARY_FILE_TCC_
+#define FIX_TEMPORARY_FILE_TCC_
 
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>
 #include <utility>
 #include <fstream>
 
-namespace fixtures {
+namespace fix {
 temporary_file::temporary_file(boost::filesystem::path p)
 : file_path(std::move(p))
 {
@@ -55,6 +55,6 @@ temporary_file& operator>>(temporary_file& in, T& value)
     file >> value;
     return in;
 }
-}  // namespace fixtures
+}  // namespace fix
 
-#endif  // FIXTURES_TEMPORARY_FILE_TCC_
+#endif  // FIX_TEMPORARY_FILE_TCC_

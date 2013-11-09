@@ -1,9 +1,9 @@
-#ifndef FIXTURES_TEMPORARY_DIRECTORY_HH_
-#define FIXTURES_TEMPORARY_DIRECTORY_HH_
+#ifndef FIX_TEMPORARY_DIRECTORY_HH_
+#define FIX_TEMPORARY_DIRECTORY_HH_
 
 #include <boost/filesystem/path.hpp>
 
-namespace fixtures {
+namespace fix {
 struct temporary_directory {
     explicit temporary_directory(boost::filesystem::path p);
     temporary_directory();
@@ -16,8 +16,8 @@ struct temporary_directory {
 private:
     boost::filesystem::path temp_path;
 };
-}  // namespace fixtures
+}  // namespace fix
 
 #include "temporary_directory.tcc"
 
-#endif  // FIXTURES_TEMPORARY_DIRECTORY_HH_
+#endif  // FIX_TEMPORARY_DIRECTORY_HH_
