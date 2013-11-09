@@ -25,6 +25,17 @@ temporary_directory::~temporary_directory()
     boost::filesystem::remove_all(temp_path, err);
 }
 
+temporary_directory::temporary_directory(temporary_directory&& rhs)
+: temp_path(std::move(rhs.temp_path)
+{
+}
+
+temporary_directory& temporary_directory::operator=(temporary_directory&& rhs)
+{
+    using std::swap;
+    swap(temp_path, rhs.temp_path);
+}
+
 boost::filesystem::path temporary_directory::path() const
 {
     return temp_path;

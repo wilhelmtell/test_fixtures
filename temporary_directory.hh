@@ -10,6 +10,8 @@ struct temporary_directory {
     ~temporary_directory();
     temporary_directory(temporary_directory const&) = delete;
     temporary_directory& operator=(temporary_directory const&) = delete;
+    temporary_directory(temporary_directory&& rhs);
+    temporary_directory& operator=(temporary_directory&& rhs);
 
     boost::filesystem::path path() const;
 
