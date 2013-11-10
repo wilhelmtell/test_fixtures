@@ -5,12 +5,15 @@
 #include <boost/filesystem/path.hpp>
 #include <utility>
 #include <fstream>
+#include <cassert>
 
 namespace fix {
 temporary_file::temporary_file(boost::filesystem::path p)
 : file_path(std::move(p))
 {
-    boost::filesystem::create_directories(file_path);
+    assert( ! boost::filesystem::exists(p) );
+    std::ofstream { p.string() };
+    assert( boost::filesystem::exists(p) );
 }
 
 temporary_file::temporary_file()
