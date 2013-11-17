@@ -1,6 +1,7 @@
 #ifndef FIX_TEMPORARY_FILE_TCC_
 #define FIX_TEMPORARY_FILE_TCC_
 
+#include "temporary_file.hh"
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>
 #include <utility>

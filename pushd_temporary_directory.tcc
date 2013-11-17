@@ -1,6 +1,7 @@
 #ifndef FIX_PUSHD_TEMPORARY_DIRECTORY_TCC_
 #define FIX_PUSHD_TEMPORARY_DIRECTORY_TCC_
 
+#include "pushd_temporary_directory.hh"
 #include <boost/filesystem/path.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/system/error_code.hpp>
