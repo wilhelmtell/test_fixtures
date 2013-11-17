@@ -15,7 +15,7 @@ inline temporary_directory::temporary_directory(boost::filesystem::path p)
 }
 
 inline temporary_directory::temporary_directory()
-: temp_path(boost::filesystem::temp_directory_path() / boost::filesystem::unique_path())
+: temporary_directory(boost::filesystem::temp_directory_path() / boost::filesystem::unique_path())
 {
     boost::filesystem::create_directories(temp_path);
 }
