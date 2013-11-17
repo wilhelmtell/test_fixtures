@@ -19,7 +19,6 @@ private:
     boost::filesystem::path file_path;
 };
 
-void swap(temporary_file& lhs, temporary_file& rhs);
 template<typename T>
 temporary_file& operator<<(temporary_file& out, T const& value);
 template<typename T>

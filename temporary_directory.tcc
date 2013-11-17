@@ -25,13 +25,6 @@ inline temporary_directory::~temporary_directory()
     boost::filesystem::remove_all(temp_path, err);
 }
 
-inline void swap(temporary_directory& lhs, temporary_directory& rhs)
-{
-    temporary_directory temporary(std::move(lhs));
-    lhs = std::move(rhs);
-    rhs = std::move(temporary);
-}
-
 inline boost::filesystem::path temporary_directory::path() const
 {
     return temp_path;

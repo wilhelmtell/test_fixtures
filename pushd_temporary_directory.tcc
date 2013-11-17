@@ -27,13 +27,6 @@ inline pushd_temporary_directory::~pushd_temporary_directory()
     boost::filesystem::current_path(original_path, err);
 }
 
-inline void swap(pushd_temporary_directory& lhs, pushd_temporary_directory& rhs)
-{
-    pushd_temporary_directory temporary(std::move(lhs));
-    lhs = std::move(rhs);
-    rhs = std::move(temporary);
-}
-
 inline boost::filesystem::path pushd_temporary_directory::path() const
 {
     return temp_dir.path();
