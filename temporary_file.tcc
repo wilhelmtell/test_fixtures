@@ -8,7 +8,7 @@
 #include <cassert>
 
 namespace fix {
-temporary_file::temporary_file(boost::filesystem::path p)
+inline temporary_file::temporary_file(boost::filesystem::path p)
 : file_path(std::move(p))
 {
     assert( ! boost::filesystem::exists(p) );
@@ -16,18 +16,18 @@ temporary_file::temporary_file(boost::filesystem::path p)
     assert( boost::filesystem::exists(p) );
 }
 
-temporary_file::temporary_file()
+inline temporary_file::temporary_file()
 : temporary_file(boost::filesystem::temp_directory_path() / boost::filesystem::unique_path())
 {
 }
 
-temporary_file::~temporary_file()
+inline temporary_file::~temporary_file()
 {
     boost::system::error_code err;
     boost::filesystem::remove_all(file_path, err);
 }
 
-boost::filesystem::path temporary_file::path() const
+inline boost::filesystem::path temporary_file::path() const
 {
     return file_path;
 }
@@ -40,7 +40,7 @@ inline void swap(temporary_file& lhs, temporary_file& rhs)
 }
 
 template<typename T>
-temporary_file& operator<<(temporary_file& out, T const& value)
+inline temporary_file& operator<<(temporary_file& out, T const& value)
 {
     std::ofstream file(out.path().string());
     file << value;
@@ -48,7 +48,7 @@ temporary_file& operator<<(temporary_file& out, T const& value)
 }
 
 template<typename T>
-temporary_file& operator>>(temporary_file& in, T& value)
+inline temporary_file& operator>>(temporary_file& in, T& value)
 {
     std::ifstream file(in.path().string());
     file >> value;

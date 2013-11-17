@@ -7,32 +7,32 @@
 #include <utility>
 
 namespace fix {
-temporary_directory::temporary_directory(boost::filesystem::path p)
+inline temporary_directory::temporary_directory(boost::filesystem::path p)
 : temp_path(std::move(p))
 {
     boost::filesystem::create_directories(temp_path);
 }
 
-temporary_directory::temporary_directory()
+inline temporary_directory::temporary_directory()
 : temp_path(boost::filesystem::temp_directory_path() / boost::filesystem::unique_path())
 {
     boost::filesystem::create_directories(temp_path);
 }
 
-temporary_directory::~temporary_directory()
+inline temporary_directory::~temporary_directory()
 {
     boost::system::error_code err;
     boost::filesystem::remove_all(temp_path, err);
 }
 
-void swap(temporary_directory& lhs, temporary_directory& rhs)
+inline void swap(temporary_directory& lhs, temporary_directory& rhs)
 {
     temporary_directory temporary(std::move(lhs));
     lhs = std::move(rhs);
     rhs = std::move(temporary);
 }
 
-boost::filesystem::path temporary_directory::path() const
+inline boost::filesystem::path temporary_directory::path() const
 {
     return temp_path;
 }
