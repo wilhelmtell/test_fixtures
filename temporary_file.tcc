@@ -34,7 +34,7 @@ inline boost::filesystem::path temporary_file::path() const
 }
 
 template<typename T>
-inline temporary_file& operator<<(temporary_file& out, T const& value)
+temporary_file& operator<<(temporary_file& out, T const& value)
 {
     std::ofstream file(out.path().string());
     file << value;
@@ -42,7 +42,7 @@ inline temporary_file& operator<<(temporary_file& out, T const& value)
 }
 
 template<typename T>
-inline temporary_file& operator>>(temporary_file& in, T& value)
+temporary_file& operator>>(temporary_file& in, T& value)
 {
     std::ifstream file(in.path().string());
     file >> value;
