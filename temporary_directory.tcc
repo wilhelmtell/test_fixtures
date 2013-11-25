@@ -37,8 +37,8 @@ inline boost::filesystem::path temporary_directory::path() const
 template<typename T>
 temporary_directory& operator<<(temporary_directory& out, temporary_file file)
 {
-    tempfiles.push_back(std::move(file));
-    return *this;
+    out.tempfiles.push_back(std::move(file));
+    return out;
 }
 }  // namespace fix
 

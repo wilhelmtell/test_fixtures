@@ -17,6 +17,9 @@ struct temporary_directory {
 
     boost::filesystem::path path() const;
 
+    template<typename T> friend
+    temporary_directory& operator<<(temporary_directory& out, temporary_file file);
+
 private:
     boost::filesystem::path temp_path;
     std::vector<temporary_file> tempfiles;
