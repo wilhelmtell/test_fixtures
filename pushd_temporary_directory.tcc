@@ -16,10 +16,8 @@ inline pushd_temporary_directory::pushd_temporary_directory(boost::filesystem::p
 }
 
 inline pushd_temporary_directory::pushd_temporary_directory()
-: temp_dir()
-, original_path(boost::filesystem::current_path())
+: pushd_temporary_directory(boost::filesystem::temp_directory_path() / boost::filesystem::unique_path())
 {
-    boost::filesystem::current_path(path());
 }
 
 inline pushd_temporary_directory::~pushd_temporary_directory()
